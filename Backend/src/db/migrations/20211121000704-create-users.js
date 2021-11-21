@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, DataTypes) => {
-    return queryInterface.createTable("Users", {
+    return queryInterface.createTable("Clients", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -13,15 +13,30 @@ module.exports = {
         allowNull: false,
         type: DataTypes.STRING,
       },
+      cpf: {
+        allowNull: false,
+        type: DataTypes.STRING,
+        unique: true,
+      },
       email: {
         allowNull: false,
         type: DataTypes.STRING,
         unique: true,
       },
-      password: {
-        allowNull: false,
+      cellphone: {
+        allowNull: true,
         type: DataTypes.STRING,
       },
+      phone: {
+        allowNull: true,
+        type: DataTypes.STRING,
+      },
+
+      birthday: {
+        allowNull: true,
+        type: DataTypes.DATE,
+      },
+
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE,
@@ -34,6 +49,6 @@ module.exports = {
   },
 
   down: (queryInterface) => {
-    return queryInterface.dropTable("Users");
+    return queryInterface.dropTable("Clients");
   },
 };
