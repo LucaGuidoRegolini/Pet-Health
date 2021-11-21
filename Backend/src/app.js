@@ -1,12 +1,14 @@
 const express = require("express");
-
 const cors = require("cors");
-//const routes = require('routes')
+
+require("./db");
+
+const router = require("./routers");
 
 const app = express();
 
-app.use(cors()); //Use o "unsubscribe"
-app.use(express.json()); //Converte o corpo da requisição em JSON
-app.use(routes);
+app.use(cors());
+app.use(express.json());
+app.use(router);
 
-app.listen(3333);
+module.exports = app;
